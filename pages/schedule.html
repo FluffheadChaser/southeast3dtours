@@ -17,6 +17,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/styles.css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17971253417"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-17971253417');
+    </script>
 </head>
 <body>
     <header class="header">
@@ -56,7 +64,6 @@
                     <li><a href="how-much-does-a-matterport-tour-cost.html">Pricing</a></li>
                     <li><a href="../blog/index.html">Blog</a></li>
                     <li><a href="about.html">About</a></li>
-                    <li><a href="contact.html">Contact</a></li>
                     <li><a href="schedule.html" class="btn btn-primary">Book a Scan</a></li>
                 </ul>
             </nav>
@@ -218,6 +225,7 @@
                     <p><a href="tel:+18643514255">864.351.4255</a></p>
                     <p><a href="mailto:james@southeast3dtours.com">james@southeast3dtours.com</a></p>
                     <p>Travelers Rest, SC 29690</p>
+                    <p><a href="contact.html">Contact Us</a></p>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -227,5 +235,24 @@
         </div>
     </footer>
     <script src="../js/main.js"></script>
+    <script>
+      document.querySelector('form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const form = e.target;
+        fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        }).then(function(response) {
+          if (response.ok) {
+            window.location.href = '/thank-you.html';
+          } else {
+            alert('Oops! Something went wrong. Please try again.');
+          }
+        }).catch(function() {
+          alert('Oops! Something went wrong. Please try again.');
+        });
+      });
+    </script>
 </body>
 </html>
