@@ -344,6 +344,14 @@ h1 { font-size: 2.5rem; } h2 { font-size: 2rem; } h3 { font-size: 1.25rem; }
 
 .cta-buttons { display: flex; gap: var(--spacing-md); justify-content: center; flex-wrap: wrap; }
 .btn-outline-white { background: transparent; color: white; border-color: white; }
+
+/* Client Logos */
+.client-logos { background: var(--color-background-alt); padding: var(--spacing-xl) 0; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0; }
+.client-logos-label { text-align: center; color: var(--color-text-light); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: var(--spacing-lg); }
+.logo-grid { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: var(--spacing-xl) var(--spacing-2xl); }
+.logo-item img { height: 48px; width: auto; filter: grayscale(1); mix-blend-mode: multiply; opacity: 0.7; transition: opacity 0.2s ease; }
+.logo-item img:hover { opacity: 1; }
+@media (max-width: 768px) { .logo-grid { gap: var(--spacing-lg); } .logo-item img { height: 36px; } }
 .btn-outline-white:hover { background: white; color: var(--color-primary); }
 
 @media (max-width: 768px) {
