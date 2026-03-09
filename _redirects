@@ -1,0 +1,2 @@
+# Redirect www to non-www
+https://www.southeast3dtours.com/* https://southeast3dtours.com/:splat 301!
