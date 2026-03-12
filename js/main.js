@@ -138,6 +138,29 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(statsSection);
     }
 
+    // Logo scroll buttons
+    const logoGrid = document.querySelector('.logo-grid');
+    const scrollLeftBtn = document.querySelector('.logo-scroll-left');
+    const scrollRightBtn = document.querySelector('.logo-scroll-right');
+
+    if (logoGrid && scrollLeftBtn && scrollRightBtn) {
+        const updateScrollBtns = () => {
+            scrollLeftBtn.classList.toggle('hidden', logoGrid.scrollLeft <= 0);
+            scrollRightBtn.classList.toggle('hidden', logoGrid.scrollLeft + logoGrid.clientWidth >= logoGrid.scrollWidth - 1);
+        };
+
+        scrollLeftBtn.addEventListener('click', () => {
+            logoGrid.scrollBy({ left: -200, behavior: 'smooth' });
+        });
+        scrollRightBtn.addEventListener('click', () => {
+            logoGrid.scrollBy({ left: 200, behavior: 'smooth' });
+        });
+
+        logoGrid.addEventListener('scroll', updateScrollBtns);
+        window.addEventListener('resize', updateScrollBtns);
+        updateScrollBtns();
+    }
+
     // Pricing Calculator
     const sqftInput = document.getElementById('sqft-input');
     const calculatedPrice = document.getElementById('calculated-price');
